@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeSurf - Phishing Simulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <h1>SafeSurf Training</h1>
+            <p>Score: <span id="score">0</span></p>
+        </header>
+        
+        <main id="scenario-box">
+            <h2 id="sender-name">Loading...</h2>
+            <div id="message-content"></div>
+        </main>
+
+        <div class="controls">
+            <button id="btn-safe" class="action-btn">Looks Safe</button>
+            <button id="btn-scam" class="action-btn">It's a Scam!</button>
+        </div>
+        
+        <div id="feedback-panel" class="hidden">
+            <p id="feedback-text"></p>
+            <button id="btn-next">Next Scenario</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
