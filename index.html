@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhishGuard: Digital Safety Mission</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container" id="game-container">
+        <header>
+            <div class="main-title">
+                <h1>🛡️ PhishGuard</h1>
+                <div class="header-row">
+                    <p class="subtitle">Mission: Spot the Scam</p>
+                    <span id="level-badge" class="badge">Level: Beginner</span>
+                </div>
+            </div>
+            
+            <div class="status-bar">
+                <div class="stat">🏆 Score: <span id="score">0</span></div>
+                <div class="stat" id="lives-display">❤️❤️❤️</div>
+            </div>
+            
+            <div class="progress-container">
+                <div id="progress-bar"></div>
+            </div>
+        </header>
+
+        <div id="intro-screen" class="intro-box">
+            <h2>Welcome, Protector!</h2>
+            <p>Your mission is to analyze incoming messages and decide if they are <b>Safe</b> or a <b>Scam</b>. Protect your hearts and climb the leaderboard!</p>
+            <button id="btn-start" class="primary-btn">Start Mission</button>
+        </div>
+        
+        <main id="scenario-box" class="hidden">
+            <div class="scenario-header">
+                <h2 id="sender-name">Scanning for threats...</h2>
+                <span class="badge red-badge">Incoming Threat</span>
+            </div>
+            <div id="message-content"></div>
+        </main>
+
+        <div class="controls hidden" id="game-controls">
+            <button id="btn-safe" class="action-btn safe-gradient">✅ Looks Safe</button>
+            <button id="btn-scam" class="action-btn scam-gradient">🚨 It's a Scam!</button>
+        </div>
+        
+        <div id="feedback-panel" class="hidden">
+            <div class="feedback-header">
+                <h3 id="feedback-heading">Analysis Result</h3>
+            </div>
+            <p id="feedback-text"></p>
+            <button id="btn-next" class="primary-btn">Continue Mission →</button>
+        </div>
+
+        <div id="leaderboard-panel" class="hidden">
+            <h2 id="end-title">🏁 Mission Complete!</h2>
+            <p id="end-message"></p>
+            
+            <div class="awareness-section">
+                <h3>📢 Become a Protector</h3>
+                <p>Knowledge is the best defense. Share your score to help others stay safe!</p>
+                <button id="btn-share" class="share-btn">📢 Spread Awareness Now</button>
+            </div>
+
+            <div class="leaderboard-header">
+                <h3>🌍 Global Wall of Fame</h3>
+            </div>
+            <ul id="leaderboard-list"></ul>
+            
+            <button id="btn-restart" class="primary-btn">Restart Training</button>
+        </div>
+
+        <footer class="game-footer">
+            <p>Developed for Senior Digital Safety 2026</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
