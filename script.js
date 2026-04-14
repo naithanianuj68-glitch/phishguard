@@ -1,16 +1,20 @@
-// 1. THE MISSION SCENARIOS (Comprehensive & Global)
+// 1. THE MISSION SCENARIOS (Expanded for Day 3)
 const scenarios = [
-    { country: "Global", sender: "Netflix Support", message: "Payment failed. Update your card at netfllx-update.com immediately.", isScam: true, explanation: "Scam! Look at the spelling of 'netfllx'. Real sites use official domains." },
-    { country: "India", sender: "SBI Bank (SMS)", message: "Your KYC is expired. Click to update via UPI PIN: bit.ly/bank-secure", isScam: true, explanation: "Scam! Banks never ask for UPI PINs for KYC updates. This is a common trick to drain accounts." },
-    { country: "Global", sender: "WhatsApp Message", message: "Hi Mum, it's me. I lost my phone, can you wire £200 for a bill?", isScam: true, explanation: "Scam! This is the 'Hi Mum' trick. Always call the person's real number to check." },
-    { country: "Global", sender: "Microsoft Support", message: "VIRUS FOUND! Call +1-800-SAFE-01 now to protect your files.", isScam: true, explanation: "Scam! Real security companies don't put phone numbers in pop-ups." },
-    { country: "Global", sender: "Lotto Winner", message: "You won $1 Million! Pay $200 delivery fee to get your check.", isScam: true, explanation: "Scam! You never pay money to receive a prize." },
-    { country: "USA", sender: "IRS Official", message: "Tax refund available. Provide SSN and Bank Info here to claim.", isScam: true, explanation: "Scam! The IRS never emails for sensitive info like your SSN." },
-    { country: "India", sender: "Delivery Agent (Call)", message: "I have a parcel for you but I need a 1-time OTP to confirm your address.", isScam: true, explanation: "Scam! Never share an OTP for a delivery you didn't expect or to 'confirm an address'." },
-    { country: "Global", sender: "Amazon Security", message: "Your account was accessed from a new device. If this wasn't you, login here: amzn-security-check.net", isScam: true, explanation: "Scam! The link 'amzn-security-check.net' is fake. Always go to Amazon.com directly." },
-    { country: "Global", sender: "Family Member", message: "Check out the photos from our hike yesterday! [Attachment: Hike.jpg]", isScam: false, explanation: "Safe! This is a typical personal message between friends/family." },
-    { country: "Global", sender: "Electricity Dept", message: "Your bill for March is now available. Log in to your secure portal at citypower.gov to view it.", isScam: false, explanation: "Safe! It uses an official .gov domain and directs you to a secure portal." },
-    { country: "India", sender: "Zomato", message: "Hungry? Use code TASTY50 for 50% off on your next order!", isScam: false, explanation: "Safe! This is a standard promotional message from a verified app." }
+    { country: "Global", sender: "Netflix Support", message: "Payment failed. Update your card at netfllx-update.com immediately.", isScam: true, tip: "Check for typos in the URL.", explanation: "Scam! 'Netfllx' is spelled with two 'L's. Official sites never misspell their own name." },
+    { country: "India", sender: "SBI Bank (SMS)", message: "Your KYC is expired. Click to update via UPI PIN: bit.ly/bank-secure", isScam: true, tip: "Banks never ask for your UPI PIN.", explanation: "Scam! A UPI PIN is only for sending money, never for receiving or updating info." },
+    { country: "Global", sender: "WhatsApp Message", message: "Hi Mum, it's me. I lost my phone, can you wire £200 for a bill?", isScam: true, tip: "Call the person on their known number.", explanation: "Scam! This is the 'Hi Mum' trick. Scammers pretend to be family in distress." },
+    { country: "Global", sender: "AI Voice Call", message: "[Audio] 'Grandpa, it's me! I'm at the police station and need bail money right now! Please don't tell Mom.'", isScam: true, tip: "Set up a family 'secret word' for emergencies.", explanation: "Scam! AI can now clone voices. Always hang up and call the child's parents directly." },
+    { country: "Global", sender: "Deepfake Video", message: "[Video Call] Your 'Boss' appears on screen asking you to buy urgent gift cards for a client meeting.", isScam: true, tip: "Look for glitching around the mouth or eyes.", explanation: "Scam! Video can be faked. No professional boss will ask for payment via gift cards." },
+    { country: "Global", sender: "Microsoft Support", message: "VIRUS FOUND! Call +1-800-SAFE-01 now to protect your files.", isScam: true, tip: "Real tech support won't use pop-up phone numbers.", explanation: "Scam! Your computer will never ask you to call a random number for safety." },
+    { country: "Global", sender: "Lotto Winner", message: "You won $1 Million! Pay $200 delivery fee to get your check.", isScam: true, tip: "You never pay to receive a prize.", explanation: "Scam! If you have to pay to get a 'prize,' the prize doesn't exist." },
+    { country: "USA", sender: "IRS Official", message: "Tax refund available. Provide SSN and Bank Info here to claim.", isScam: true, tip: "The IRS communicates via physical mail first.", explanation: "Scam! The IRS will never email or text you asking for your Social Security Number." },
+    { country: "India", sender: "Delivery Agent (Call)", message: "I have a parcel for you but I need a 1-time OTP to confirm your address.", isScam: true, tip: "Never share an OTP for a delivery.", explanation: "Scam! Delivery agents do not need an OTP to find your house." },
+    { country: "Global", sender: "Amazon Security", message: "Your account was accessed from a new device. If this wasn't you, login here: amzn-security-check.net", isScam: true, tip: "Log in through the official app only.", explanation: "Scam! Fake links like 'amzn-security' are designed to steal your password." },
+    { country: "Global", sender: "Family Member", message: "Check out the photos from our hike yesterday! [Attachment: Hike.jpg]", isScam: false, tip: "Expect photos from people you know.", explanation: "Safe! This is a typical personal message from a known contact." },
+    { country: "Global", sender: "Electricity Dept", message: "Your bill for March is now available. Log in to your secure portal at citypower.gov to view it.", isScam: false, tip: "Check for the .gov or .edu domain.", explanation: "Safe! It uses an official government domain and leads to a secure portal." },
+    { country: "India", sender: "Zomato", message: "Hungry? Use code TASTY50 for 50% off on your next order!", isScam: false, tip: "Verified apps often send promo codes.", explanation: "Safe! Standard marketing from a verified service you use." },
+    { country: "Global", sender: "Bank Notification", message: "A purchase of $42.00 was made at 'The Coffee Shop'. View your balance in our app.", isScam: false, tip: "Standard alerts don't ask for info.", explanation: "Safe! This is a standard transactional alert with no suspicious links." },
+    { country: "Global", sender: "Friend", message: "Hey! Are we still on for lunch at 1 PM today?", isScam: false, tip: "Context matters in messages.", explanation: "Safe! A normal social check-in regarding a planned event." }
 ];
 
 // 2. GAME VARIABLES
@@ -91,7 +95,10 @@ function handleGuess(userGuessScam) {
         document.getElementById('feedback-heading').innerText = "🚨 Analysis: DANGER";
     }
 
-    document.getElementById('feedback-text').innerText = current.explanation;
+    document.getElementById('feedback-text').innerHTML = `
+    <strong>💡 Pro-Tip:</strong> ${current.tip}<br><br>
+    ${current.explanation}
+`;
     gameControls.classList.add('hidden');
     feedbackPanel.classList.remove('hidden');
 }
@@ -142,3 +149,24 @@ document.getElementById('btn-share').onclick = () => {
 
 // INITIALIZE
 shuffle(scenarios);
+// --- Dark Mode Logic ---
+const themeBtn = document.getElementById('theme-switch');
+const body = document.body;
+
+// Check for saved theme preference
+if (localStorage.getItem('theme') === 'dark') {
+    body.classList.add('dark-theme');
+    themeBtn.innerText = '☀️'; // Show sun in dark mode
+}
+
+themeBtn.onclick = () => {
+    body.classList.toggle('dark-theme');
+    
+    if (body.classList.contains('dark-theme')) {
+        localStorage.setItem('theme', 'dark');
+        themeBtn.innerText = '☀️';
+    } else {
+        localStorage.setItem('theme', 'light');
+        themeBtn.innerText = '🌑';
+    }
+};

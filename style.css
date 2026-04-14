@@ -148,3 +148,70 @@ header .main-title h1 {
     70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
     100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
 }
+/* Accessibility Boost */
+#message-content {
+    font-size: 24px; /* Slightly larger for easier reading */
+    font-weight: 500;
+}
+
+.action-btn {
+    padding: 25px; /* Bigger tap target */
+    font-size: 20px;
+    letter-spacing: 0.5px;
+}
+
+#feedback-text {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #4a5568;
+}/* --- Dark Mode Variables --- */
+body.dark-theme {
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --text-main: #e0e0e0;
+    --primary-grad: linear-gradient(135deg, #8e9eef 0%, #a18cd1 100%);
+}
+
+/* Adjustments for elements in Dark Mode */
+body.dark-theme #scenario-box {
+    background: #252525;
+    border-color: #333;
+}
+
+body.dark-theme #message-content {
+    color: #ffffff;
+}
+
+body.dark-theme .badge {
+    background: #333;
+    color: #ccc;
+}
+
+body.dark-theme .intro-box p, 
+body.dark-theme #feedback-text {
+    color: #b0b0b0;
+}
+
+body.dark-theme footer p {
+    color: #666;
+}
+
+/* --- Theme Toggle Button Styling --- */
+.theme-toggle {
+    background: none;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+body.dark-theme .theme-toggle {
+    border-color: #555;
+    background: #333;
+}
